@@ -10,13 +10,13 @@ MSYS2 ported the `pacman` package manager from Arch Linux, which has a simple sy
 
 In the MSYS2 terminal, do the following,
 
-1. Install the development tools needed to build software from source by running:
+2. Install the development tools needed to build software from source by running:
 
 ```
 pacman -S base-devel
 ```
 
-1. Install leptonica from MSYS2 repos
+3. Install leptonica from MSYS2 repos
 
 ```
 pacman -S leptonica
@@ -31,7 +31,7 @@ cd leptonica
 makepkg -sri
 ```
 
-1. Update the pkg-config search path
+4. Update the pkg-config search path
 
 By default, pkg-config does not look in the /mingw64 directory,
 
@@ -39,7 +39,7 @@ By default, pkg-config does not look in the /mingw64 directory,
 export PKG_CONFIG_PATH=/mingw64/lib/pkgconfig/
 ```
 
-1. Build package
+5. Build package
 
 Using the PKGBUILD file, issue the following command to build Tesseract
 
