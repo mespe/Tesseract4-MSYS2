@@ -1,4 +1,4 @@
-# PKGBUILD files for building Leptonica and Tesseract on Windows
+# PKGBUILD files for building Leptonica and Tesseract-OCR 4.0 on Windows
 
 This repo provides two PKGBUILD files for building both Leptonica and Tesseract OCR on Windows using the MSYS2 build system.
 
@@ -33,7 +33,7 @@ makepkg -sri
 
 4. Update the pkg-config search path
 
-By default, pkg-config does not look in the /mingw64 directory,
+By default, pkg-config does not look in the /mingw64 directory, so you need to set the `PKG_CONFIG_PATH` variable,
 
 ```
 export PKG_CONFIG_PATH=/mingw64/lib/pkgconfig/
@@ -46,3 +46,4 @@ Using the PKGBUILD file, issue the following command to build Tesseract
 ```
 makepkg -sri
 ```
+
