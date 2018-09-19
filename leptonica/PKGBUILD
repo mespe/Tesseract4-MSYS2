@@ -1,0 +1,35 @@
+# Maintainer: Matt Espe <mespe@ucdavis.edu>
+
+MINGW_PACKAGE_PREFIX=mingw-w64-x86_64
+MINGW_PREFIX=/mingw64
+
+pkgname=leptonica-dev
+basename=leptonica
+pkgver=1.76
+pkgrel=0
+pkgdesc="Leptonica (mingw-w64)"
+arch=('any')
+url="https://github.com/DanBloomberg/leptonica"
+license=("Apache License 2.0")
+makedepends=(${MINGW_PACKAGE_PREFIX}-{gcc,pkg-config,libtool})
+depends=(${MINGW_PACKAGE_PREFIX}-{libjpeg,libtiff,libpng,zlib,giflib,libwebp,openjpeg2})
+conflicts=(${MINGW_PACKAGE_PREFIX-leptonica})
+source=(http://www.leptonica.com/source/leptonica-1.76.0.tar.gz)
+sha256sums=('5e9a33b7ce33ab39fb03cee5a7ec353b044670176303265d7c64d51539616857')
+ 
+build() {
+  [[ -d "${srcdir}/build" ]] && rm -rf "${srcdir}/build"
+
+  mkdir "${srcdir}/build"
+  cd "${srcdir}/build"
+
+  ../${basename}-${pkgver}.${pkgrel}/configure \
+     --prefix=${MINGW_PREFIX}
+    
+  make
+}
+
+package() {
+  cd "${srcdir}/build"
+  make DESTDIR="${pkgdir}" install
+}
