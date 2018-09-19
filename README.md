@@ -16,7 +16,14 @@ In the MSYS2 terminal, do the following,
 pacman -S base-devel
 ```
 
-3. Install leptonica from MSYS2 repos
+3. Clone this repo and `cd` to it
+
+```
+git clone git@github.com:mespe/Tesseract4-MSYS2.git
+cd Tesseract4-MSYS2
+```
+
+4. Install leptonica from MSYS2 repos
 
 ```
 pacman -S leptonica
@@ -29,6 +36,7 @@ Use the PKGBUILD file located in the leptonica folder,
 ```
 cd leptonica
 makepkg -sri
+cd ..
 ```
 
 4. Update the pkg-config search path
@@ -44,6 +52,7 @@ export PKG_CONFIG_PATH=/mingw64/lib/pkgconfig/
 Using the PKGBUILD file, issue the following command to build Tesseract
 
 ```
+cd tesseract
 makepkg -sri
 ```
 
